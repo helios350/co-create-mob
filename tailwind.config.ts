@@ -13,6 +13,12 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        'inter': ['Inter', 'sans-serif'],
+        'source': ['Source Sans Pro', 'sans-serif'],
+        'heading': ['Inter', 'sans-serif'],
+        'body': ['Source Sans Pro', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
