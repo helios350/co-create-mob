@@ -1,9 +1,12 @@
-import { AppLayout, Container, Section, Button, Card, CardContent, ProgressBar, Badge, LoadingSpinner } from "@/components";
+import { useNavigate } from 'react-router-dom';
+import { AppLayout, Container, Section, Button, Card, CardContent } from "@/components";
 import { BookOpen, Users, Brain, Eye } from "lucide-react";
 
 const Index = () => {
+  const navigate = useNavigate();
+
   return (
-    <AppLayout>
+    <AppLayout showBottomNav={false}>
       <Section variant="gradient" padding="xl">
         <Container>
           <div className="text-center">
@@ -19,11 +22,11 @@ const Index = () => {
               Master the art of reading body language and understanding human psychology through interactive lessons and practical scenarios.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="font-medium">
+              <Button size="lg" className="font-medium" onClick={() => navigate('/auth')}>
                 Get Started
               </Button>
-              <Button variant="outline" size="lg" className="font-medium">
-                Learn More
+              <Button variant="outline" size="lg" className="font-medium" onClick={() => navigate('/auth')}>
+                Sign In
               </Button>
             </div>
           </div>
@@ -51,67 +54,16 @@ const Index = () => {
         </Container>
       </Section>
 
-      <Section variant="muted" padding="lg">
+      <Section padding="lg">
         <Container>
           <div className="text-center">
-            <h2 className="text-3xl font-heading font-bold mb-4">Design System Demo</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-              
-              {/* Button Variants */}
-              <Card>
-                <CardContent className="pt-6">
-                  <h3 className="font-semibold mb-4">Button Variants</h3>
-                  <div className="space-y-3">
-                    <Button className="w-full">Primary Button</Button>
-                    <Button variant="secondary" className="w-full">Secondary</Button>
-                    <Button variant="accent" className="w-full">Accent</Button>
-                    <Button variant="gradient" className="w-full">Gradient</Button>
-                    <Button variant="outline" className="w-full">Outline</Button>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Progress & Badges */}
-              <Card>
-                <CardContent className="pt-6">
-                  <h3 className="font-semibold mb-4">Progress & Status</h3>
-                  <div className="space-y-4">
-                    <div>
-                      <div className="flex justify-between mb-2">
-                        <span className="text-sm">Learning Progress</span>
-                        <span className="text-sm">75%</span>
-                      </div>
-                      <ProgressBar value={75} variant="default" />
-                    </div>
-                    <div>
-                      <div className="flex justify-between mb-2">
-                        <span className="text-sm">Quiz Score</span>
-                        <span className="text-sm">90%</span>
-                      </div>
-                      <ProgressBar value={90} variant="success" />
-                    </div>
-                    <div className="flex gap-2 flex-wrap">
-                      <Badge>Beginner</Badge>
-                      <Badge variant="secondary">In Progress</Badge>
-                      <Badge variant="destructive">Needs Review</Badge>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Loading States */}
-              <Card>
-                <CardContent className="pt-6">
-                  <h3 className="font-semibold mb-4">Loading States</h3>
-                  <div className="space-y-4">
-                    <LoadingSpinner size="sm" />
-                    <LoadingSpinner size="md" />
-                    <LoadingSpinner size="lg" />
-                  </div>
-                </CardContent>
-              </Card>
-
-            </div>
+            <h2 className="text-3xl font-heading font-bold mb-8">Ready to start your journey?</h2>
+            <Button size="lg" onClick={() => navigate('/auth')}>
+              Create Free Account
+            </Button>
+            <p className="text-sm text-muted-foreground mt-4">
+              Already have an account? <button onClick={() => navigate('/auth')} className="text-primary hover:underline">Sign in here</button>
+            </p>
           </div>
         </Container>
       </Section>
